@@ -65,3 +65,78 @@
     - Нажать кнопку "Submit" (или аналогичную)
   expected-result: |
     Код отправлен, отображаются результаты тестов (успех или ошибка) в течение 1 секунды
+
+- summary: |
+    Проверка авторизации пользователя через Email с валидными данными
+  requirement: |
+    При успешной авторизации через Email пользователь должен войти в систему и попасть на главную страницу.
+  prerequisites: |
+    Открыта главная страница https://codebattle.hexlet.io/
+    У пользователя есть действующий аккаунт и пароль.
+  test-data: |
+    Email = user@gmail.com  
+    Пароль = Validpassword123
+  steps:
+    - Нажать кнопку "Sigh in"
+    - Ввести Email пользователя
+    - Ввести пароль пользователя
+    - Нажать кнопку "Submit"
+  expected-result: |
+    Пользователь перенаправлен на главную страницу Codebattle с отображением профиля
+
+- summary: |
+    Проверка авторизации пользователя через Email с неверными данными
+  requirement: >
+    При вводе неверных данных авторизация должна завершиться ошибкой, и
+    пользователь должен увидеть сообщение об ошибке.
+  prerequisites: |
+    Открыта главная страница https://codebattle.hexlet.io/
+  test-data: |
+    Email = wronguser@gmail.com  
+    Пароль = Invalidpassword123
+  steps:
+    - Нажать кнопку "Sign in"
+    - Ввести некорректный Email
+    - Ввести некорректный пароль
+    - Нажать кнопку "Submit"
+  expected-result: |
+    Появляется сообщение об ошибке "Invalid email or password"
+    Пользователь остаётся на странице авторизации
+
+- summary: |
+    Проверка авторизации пользователя через Discord с валидными данными
+  requirement: |
+    При успешной авторизации через Discord пользователь должен войти в систему и попасть на главную страницу.
+  prerequisites: |
+    Открыта главная страница https://codebattle.hexlet.io/
+    У пользователя есть действующий аккаунт Discord
+    Пользователь перенаправлен на главную страницу Discord
+  test-data: |
+    Discord логин = user@discord.com  
+    Discord пароль = validpassword123
+  steps:
+    - Нажать кнопку "Sign in with Discord"
+    - Ввести Discord логин
+    - Ввести Discord пароль
+    - Нажать кнопку "Log in" на странице Discord
+  expected-result: |
+    Пользователь перенаправлен на главную страницу Codebattle с отображением профиля
+
+- summary: |
+    Проверка авторизации пользователя через Discord с неверными данными
+  requirement: |
+    При вводе неверных данных авторизация должна завершиться ошибкой, и пользователь должен увидеть сообщение об ошибке.
+  prerequisites: |
+    Открыта главная страница https://codebattle.hexlet.io/
+  test-data: |
+    Discord логин = wronguser@discord.com  
+    Discord пароль = Invalidpassword123
+  steps:
+    - Нажать кнопку "Sign in with Discord"
+    - Ввести некорректный Discord логин
+    - Ввести некорректный пароль
+    - Нажать кнопку "Log in" на странице Discord
+  expected-result: |
+    Появляется сообщение об ошибке "Login or password is invalid"
+    Пользователь остаётся на странице авторизации
+
