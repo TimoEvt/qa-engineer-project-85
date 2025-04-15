@@ -166,4 +166,34 @@
     Для каждого клана видно название, количество участников
     При нажатии на название клана открывается страница этого клана
 
+- summary: |
+    Проверка создания турнира авторизованным пользователем с валидными данными
+  requirement: |
+    После создания турнир должен отображаться в списке турниров с заданными параметрами
+  prerequisites: |
+    Пользователь авторизован на сайте https://codebattle.hexlet.io
+    Открыта страница https://codebattle.hexlet.io/tournaments
+    У пользователя есть права на создание турнира
+  test-data: |
+    Название турнира = My fancy tournament
+    Тип = individual/team/swiss/arena etc.
+    Уровень = easy/medium/hard
+    Task strategy = random
+    Match timeout = 15 минут
+    Break duration = 0 минут
+    Players = random
+  steps:
+    - Открыть страницу https://codebattle.hexlet.io/tournaments
+    - Ввести название турнира
+    - Выбрать тип "individual"
+    - Выбрать уровень 
+    - Выбрать Task strategy = random
+    - Установить Match timeout = 15
+    - Установить Break duration = 0
+    - Выбрать количество игроков
+    - Нажать кнопку "Create"
+  expected-result: |
+    Турнир "My fancy tournament" отображается в списке турниров с указанными параметрами
+    Пользователь видит информацию о созданном турнире
+
 
